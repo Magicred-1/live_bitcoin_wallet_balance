@@ -1,0 +1,111 @@
+/* reset */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body{
+    font: 1.6rem "Roboto",sans-serif;
+    margin: 0;
+    background-color: var(--backgroundColor);
+}
+p, ul, ol, h1, h2, h3, address{
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a,abbr{
+    text-decoration: none;
+    color: #222;
+}
+*{
+    box-sizing: border-box;
+}
+
+/*theme*/
+/* scroll bars */
+*{
+    /* For FF and non-webkit browsers */
+    scrollbar-width: thin;
+    scrollbar-color: #000 #FFF;
+}
+
+:root {
+    --backgroundColor: #f2a900;
+    --textColor: #4d4d4e;
+    --thirdColor: #fff;
+}
+
+*::-webkit-scrollbar {
+    width: .2rem;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #222;
+    outline: .1rem solid #333;
+}
+
+header h1, section h2{
+    line-height: 6.5rem;
+    text-align: center;
+    color: var(--textColor);
+    background-color: var(--backgroundColor);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    text-shadow: .1rem .1rem 0 rgb(0, 0, 0);
+    transition: all .3s;
+}
+
+header {
+    display: block;
+}
+
+header h1 em, header h1 span {
+    color: var(--thirdColor)
+}
+header img {
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+    vertical-align: middle;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+progress {
+    margin: 1rem;
+    width: 50rem;
+    border: solid .1rem #333;
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem #000;
+}
+progress[value] {
+    color: var(--backgroundColor);
+}
+
+button#btn {
+    margin: 1rem;
+    width: 50%;
+    background-color: var(--thirdColor);
+    border-radius: 1rem;
+}
+
+input[type="text"] {
+    margin: 1rem;
+    width: 31rem;
+    padding: .5rem;
+    background-color: var(--thirdColor);
+    border-radius: 1rem;
+    color: var(--textColor);
+    border: solid .1rem #333;
+    box-shadow: 0 0 .5rem #000;
+}
