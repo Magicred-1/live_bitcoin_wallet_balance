@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let wallet_balance_usd = document.getElementById("wallet_balance_usd").innerHTML = "$ " + ((0. + data ) * 0.0025);
     });
 
-    // Progress bar value
-    let value_progressbar = document.getElementById("value").value = 50;
-
     // Get the account typed in the input text
     let account = document.getElementById("account").value /*= "Hello World"*/;
 
