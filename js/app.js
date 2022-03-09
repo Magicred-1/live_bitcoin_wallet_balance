@@ -16,10 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // API Documentation link : https://blockchain.info/q/
                 // Using external API to get the balance in satoshi selected wallet
-                let url = "https://blockchain.info/q/addressbalance/";
-                url += account;
+                let url = "https://blockchain.info/q/addressbalance/" + account + "?confirmations=0";
                 // Example : url += "3GKzR29LdyXg8Vao8Mni4MkyrTKXyeDbfN";
-                url += "?confirmations=0";
 
                 // URL toward the Blockchain Explorer
                 let explorer_url = "https://blockchain.info/address/";
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 // We insert the wallet both BTC & USD balance into the DOM
                 let infos = document.getElementById('wallet_name');
                 infos.insertAdjacentHTML('beforeend', '<p id="wallet_balance_btc"></p><p id="wallet_balance_usd"></p>');
-
 
                 // Fetching the balance from the API
                 let result = fetch(url);
