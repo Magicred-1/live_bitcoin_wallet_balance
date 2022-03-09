@@ -14,8 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // First we verify if the account is valid
             if (account && account.match(bitcoinAdressRegex)) {
 
+                // API Documentation link : https://blockchain.info/q/
                 // Using external API to get the balance in satoshi selected wallet
-                let url = "https://blockchain.info/q/getreceivedbyaddress/";
+                let url = "https://blockchain.info/q/addressbalance/";
                 url += account;
                 // Example : url += "3GKzR29LdyXg8Vao8Mni4MkyrTKXyeDbfN";
                 url += "?confirmations=0";
@@ -23,9 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 // URL toward the Blockchain Explorer
                 let explorer_url = "https://blockchain.info/address/";
 
+                // let dailyBTCPrice = "https://blockchain.info/q/24hrprice";
+
                 // If the account is valid we set the wallet name
                 wallet_name.innerHTML = 'Wallet name : ' + '<a target="blank_" href="' + explorer_url + account + '">' + account + ' <em class="fa fa-link"></em></a>';
-                console.log(wallet_name);
 
                 // We insert the wallet both BTC & USD balance into the DOM
                 let infos = document.getElementById('wallet_name');
@@ -35,19 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Fetching the balance from the API
                 let result = fetch(url);
                 result.then(response => response.json())
-                .then(data =>   {
+                .then(data => {
                     // Getting the response in a variable
                     let balance = data;
 
                     // Show the balance in satoshis and convert to BTC
-                    let wallet_balance_satoshis 
-                    let wallet_balance_btc =  document.getElementById("wallet_balance_btc").innerHTML = "0." + data + " <em class=\"fa-brands fa-btc\"></em>";
 
-                    // Convert satoshis to usd
+                    let wallet_balance_btc =  document.getElementById("wallet_balance_btc").innerHTML = data + " <em class=\"fa-brands fa-btc\"></em>";
+
                     // Formula for calculating the price based on the amount of satoshis
                     // [USD/BTC] * [BTC/SAT] * [SAT/1]
-                    let formula;
-                    let wallet_balance_usd = document.getElementById("wallet_balance_usd").innerHTML = "$ " + ((0. + data ) * 0.0025);
+                    let formula = (1/getBTCPrice) * (getBTCPrice/data) * (data/1);
+
+                    // Convert satoshis to usd
+                    let wallet_balance_usd = document.getElementById("wallet_balance_usd").innerHTML = "<em class=\"fa-brands fa-usd\"></em> 11111" /* + formula */;
                 });
             } else {
                 wallet_name.innerHTML = "Please insert a valid BTC account adress.";
