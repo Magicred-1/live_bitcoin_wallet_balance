@@ -14,18 +14,23 @@ document.addEventListener("DOMContentLoaded", () => {
         // First we verify if the account is valid
             if (account && account.match(bitcoinAdressRegex)) {
 
-                // If the account is valid we set the wallet name
-                wallet_name.innerHTML = "Wallet name : " + account;
-
-                // We insert the wallet both BTC & USD balance into the DOM
-                let infos = document.getElementById('wallet_name');
-                infos.insertAdjacentHTML('beforeend', '<p id="wallet_balance_btc"></p><p id="wallet_balance_usd"></p>');
-
                 // Using external API to get the balance in satoshi selected wallet
                 let url = "https://blockchain.info/q/getreceivedbyaddress/";
                 url += account;
                 // Example : url += "3GKzR29LdyXg8Vao8Mni4MkyrTKXyeDbfN";
                 url += "?confirmations=0";
+
+                // URL toward the Blockchain Explorer
+                let explorer_url = "https://blockchain.info/address/";
+
+                // If the account is valid we set the wallet name
+                wallet_name.innerHTML = 'Wallet name : ' + '<a target="blank_" href="' + explorer_url + account + '">' + account + ' <em class="fa fa-link"></em></a>';
+                console.log(wallet_name);
+
+                // We insert the wallet both BTC & USD balance into the DOM
+                let infos = document.getElementById('wallet_name');
+                infos.insertAdjacentHTML('beforeend', '<p id="wallet_balance_btc"></p><p id="wallet_balance_usd"></p>');
+
 
                 // Fetching the balance from the API
                 let result = fetch(url);

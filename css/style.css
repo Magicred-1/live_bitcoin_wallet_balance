@@ -92,6 +92,14 @@ main {
 section {
     text-align: center;
 }
+section a {
+    color: var(--thirdColor);
+    text-decoration: none;
+    transition: all .3s;
+}
+section a:hover {
+    color: var(--textColor);
+}
 
 button#btn {
     margin: 1rem;
