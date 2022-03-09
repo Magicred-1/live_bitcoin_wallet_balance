@@ -80,16 +80,17 @@ main {
     align-items: center;
     gap: 2rem;
 }
-
-progress {
+/* progress[value] {
     margin: 1rem;
     width: 50rem;
     border: solid .1rem #333;
     border-radius: .5rem;
     box-shadow: 0 0 .5rem #000;
-}
-progress[value] {
     color: var(--backgroundColor);
+} */
+
+section {
+    text-align: center;
 }
 
 button#btn {
