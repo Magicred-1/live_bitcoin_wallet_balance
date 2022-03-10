@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addEventListener("change", () => {
         let account = document.getElementById("account").value;
         // First we verify if the account is valid
-            if (account && account.match(bitcoinRegex)) {
+            if (!!account && account.match(bitcoinAdressRegex)) {
 
                 // API Documentation link : https://blockchain.info/q/
                 // Using external API to get the balance in satoshi selected wallet
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // let dailyBTCPrice = "https://blockchain.info/q/24hrprice";
 
                 // If the account is valid we set the wallet name
-                wallet_name.innerHTML = 'Wallet name : ' + '<a target="blank_" href="' + explorer_url + account + '">' + account + ' <em class="fa fa-link"></em></a>';
+                wallet_name.innerHTML = 'Wallet name : ' + '<a target="blank_" href="' + explorer_url + account + '">'+ account + ' <em class="fa fa-link"></em></a>';
 
                 // We insert the wallet both BTC & USD balance into the DOM
                 let infos = document.getElementById('wallet_name');
@@ -40,11 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // Show the balance in satoshis and convert to BTC
 
-                    let wallet_balance_btc =  document.getElementById("wallet_balance_btc").innerHTML = data + " <em class=\"fa-brands fa-btc\"></em>";
+                    let wallet_balance_btc =  document.getElementById("wallet_balance_btc").innerHTML = "0." + balance + " <em class=\"fa-brands fa-btc\"></em>";
 
                     // Formula for calculating the price based on the amount of satoshis
                     // [USD/BTC] * [BTC/SAT] * [SAT/1]
-                    let formula = (1/getBTCPrice) * (getBTCPrice/data) * (data/1);
+                    let formula = (1/getBTCPrice) * (getBTCPrice/balance) * (balance/1);
 
                     // Convert satoshis to usd
                     let wallet_balance_usd = document.getElementById("wallet_balance_usd").innerHTML = "<em class=\"fa-brands fa-usd\"></em> 11111" /* + formula */;
