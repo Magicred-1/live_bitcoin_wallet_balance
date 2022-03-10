@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("loaded");
     // Catch the wallet name element and set it to the wallet name
     let wallet_name = document.getElementById("wallet_name")
-    wallet_name.innerHTML = "Please insert your BTC account adress.";
+    wallet_name.innerHTML = "Please insert your BTC account address.";
 
     // Verification of the wallet address using regex
     let bitcoinAdressRegex = /^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/;
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addEventListener("change", () => {
         let account = document.getElementById("account").value;
         // First we verify if the account is valid
-            if (account && account.match(bitcoinAdressRegex)) {
+            if (account && account.match(bitcoinRegex)) {
 
                 // API Documentation link : https://blockchain.info/q/
                 // Using external API to get the balance in satoshi selected wallet
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let wallet_balance_usd = document.getElementById("wallet_balance_usd").innerHTML = "<em class=\"fa-brands fa-usd\"></em> 11111" /* + formula */;
                 });
             } else {
-                wallet_name.innerHTML = "Please insert a valid BTC account adress.";
+                wallet_name.innerHTML = "Please insert a valid BTC account .";
             }
     });
 });

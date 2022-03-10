@@ -81,14 +81,6 @@ main {
     align-items: center;
     gap: 2rem;
 }
-/* progress[value] {
-    margin: 1rem;
-    width: 50rem;
-    border: solid .1rem #333;
-    border-radius: .5rem;
-    box-shadow: 0 0 .5rem #000;
-    color: var(--backgroundColor);
-} */
 
 section {
     text-align: center;
@@ -111,11 +103,11 @@ button#btn {
 
 input[type="text"] {
     margin: 1rem;
-    width: 31rem;
+    width: 41rem;
     padding: .5rem;
     background-color: var(--thirdColor);
     border-radius: 1rem;
     color: var(--textColor);
-    border: solid .1rem #333;
-    box-shadow: 0 0 .5rem #000;
+    border: solid .1rem var(--textColor);
+    box-shadow: 0 0 .5rem var(--thirdColor);
 }
